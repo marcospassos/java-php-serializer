@@ -33,10 +33,11 @@ public class ReflectionUtilsTest
     }
 
     @Test
-    public void getFieldsReturnsAllFieldsFromClassAndSuperclasses() throws Exception
+    public void getFieldsReturnsAllFieldsFromClassAndSuperclasses()
+        throws Exception
     {
         assertArrayEquals(
-            new Field[]{ A.class.getDeclaredField("a")},
+            new Field[]{A.class.getDeclaredField("a")},
             ReflectionUtils.getFields(A.class)
         );
 

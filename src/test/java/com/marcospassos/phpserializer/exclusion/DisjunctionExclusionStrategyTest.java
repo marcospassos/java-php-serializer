@@ -17,12 +17,14 @@ import org.junit.Test;
  */
 public class DisjunctionExclusionStrategyTest
 {
-    class A {
+    class A
+    {
         private int field;
     }
 
     @Test
-    public void shouldSkipFieldPerformsShortCircuitOrOperation() throws Exception
+    public void shouldSkipFieldPerformsShortCircuitOrOperation()
+        throws Exception
     {
         FieldExclusionStrategy a = mock(FieldExclusionStrategy.class);
         FieldExclusionStrategy b = mock(FieldExclusionStrategy.class);
@@ -31,7 +33,10 @@ public class DisjunctionExclusionStrategyTest
 
         when(a.shouldSkipField(field)).thenReturn(true);
 
-        FieldExclusionStrategy strategy = new DisjunctionExclusionStrategy(a, b);
+        FieldExclusionStrategy strategy = new DisjunctionExclusionStrategy(
+            a,
+            b
+        );
 
         assertTrue(strategy.shouldSkipField(field));
 
@@ -40,7 +45,8 @@ public class DisjunctionExclusionStrategyTest
     }
 
     @Test
-    public void shouldSkipFieldReturnsFalseIfNoStrategyIsProvided() throws Exception
+    public void shouldSkipFieldReturnsFalseIfNoStrategyIsProvided()
+        throws Exception
     {
         FieldExclusionStrategy strategy = new DisjunctionExclusionStrategy();
         Field field = A.class.getDeclaredField("field");
