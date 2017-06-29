@@ -17,6 +17,10 @@
     <url>https://github.com/marcospassos/java-php-serializer</url>
   </organization>
 
+  <scm>
+    <url>https://github.com/marcospassos/java-php-serializer.git</url>
+  </scm>
+
   <developers>
     <developer>
       <name>Marcos Passos</name>
