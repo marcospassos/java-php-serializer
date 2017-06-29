@@ -2,6 +2,7 @@ package com.marcospassos.phpserializer.adapter;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import com.marcospassos.phpserializer.Context;
 import com.marcospassos.phpserializer.Writer;
@@ -23,5 +24,7 @@ public class DoubleAdapterTest
         adapter.write(1.5, writer, context);
 
         verify(writer).writeFloat(1.5);
+
+        verifyNoMoreInteractions(writer);
     }
 }

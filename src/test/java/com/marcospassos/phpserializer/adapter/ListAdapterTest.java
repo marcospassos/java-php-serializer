@@ -36,5 +36,7 @@ public class ListAdapterTest
         order.verify(writer).writeKey(2);
         order.verify(context).write("c", writer);
         order.verify(writer).writeArrayEnd();
+
+        order.verifyNoMoreInteractions();
     }
 }
