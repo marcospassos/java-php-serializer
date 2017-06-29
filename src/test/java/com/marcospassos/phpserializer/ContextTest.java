@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -75,9 +74,9 @@ public class ContextTest
 
         context.write(values[0], writer);
 
-        verify(adapter, times(1)).write(values[0], writer, context);
-        verify(adapter, times(1)).write(values[1], writer, context);
-        verify(adapter, times(1)).write(values[2], writer, context);
+        verify(adapter).write(values[0], writer, context);
+        verify(adapter).write(values[1], writer, context);
+        verify(adapter).write(values[2], writer, context);
 
         assertEquals(1, depthStack.get(0));
         assertEquals(2, depthStack.get(1));
@@ -117,9 +116,9 @@ public class ContextTest
 
         context.write(values[0], writer);
 
-        verify(adapter, times(1)).write(values[0], writer, context);
-        verify(adapter, times(1)).write(values[1], writer, context);
-        verify(adapter, times(1)).write(values[2], writer, context);
+        verify(adapter).write(values[0], writer, context);
+        verify(adapter).write(values[1], writer, context);
+        verify(adapter).write(values[2], writer, context);
 
         assertEquals(2, parentStack.size());
         assertEquals(10, parentStack.get(0));
@@ -151,9 +150,9 @@ public class ContextTest
 
         context.write(values[0], writer);
 
-        verify(adapter, times(1)).write(values[0], writer, context);
-        verify(adapter, times(1)).write(values[1], writer, context);
-        verify(adapter, times(1)).write(values[2], writer, context);
+        verify(adapter).write(values[0], writer, context);
+        verify(adapter).write(values[1], writer, context);
+        verify(adapter).write(values[2], writer, context);
 
         Object[] expected = new Object[]{
             new Object[]{10},
@@ -179,8 +178,8 @@ public class ContextTest
 
         context.write(1, writer);
 
-        verify(adapterRegistry, times(1)).getAdapter(Integer.class);
-        verify(adapter, times(1)).write(1, writer, context);
+        verify(adapterRegistry).getAdapter(Integer.class);
+        verify(adapter).write(1, writer, context);
     }
 
     @Test
@@ -189,7 +188,7 @@ public class ContextTest
         Writer writer = mock(Writer.class);
         context.write(null, writer);
 
-        verify(writer, times(1)).writeNull();
+        verify(writer).writeNull();
     }
 
     @Test

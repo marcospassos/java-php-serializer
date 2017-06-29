@@ -5,7 +5,6 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -52,7 +51,7 @@ public class SerializerBuilderTest
         ArgumentCaptor<NamingStrategy> namingStrategyArgument =
             ArgumentCaptor.forClass(NamingStrategy.class);
 
-        verify(factory, times(1)).create(
+        verify(factory).create(
             namingStrategyArgument.capture(),
             exclusionStrategyArgument.capture(),
             adapterRegistryArgument.capture()
@@ -97,7 +96,7 @@ public class SerializerBuilderTest
         ArgumentCaptor<FieldExclusionStrategy> exclusionStrategyArgument =
             ArgumentCaptor.forClass(FieldExclusionStrategy.class);
 
-        verify(factory, times(1)).create(
+        verify(factory).create(
             any(NamingStrategy.class),
             exclusionStrategyArgument.capture(),
             any(AdapterRegistry.class)
@@ -108,8 +107,8 @@ public class SerializerBuilderTest
 
         assertFalse(disjunction.shouldSkipField(field));
 
-        verify(first, times(1)).shouldSkipField(field);
-        verify(second, times(1)).shouldSkipField(field);
+        verify(first).shouldSkipField(field);
+        verify(second).shouldSkipField(field);
     }
 
     @Test
@@ -122,7 +121,7 @@ public class SerializerBuilderTest
         ArgumentCaptor<NamingStrategy> namingStrategyArgument =
             ArgumentCaptor.forClass(NamingStrategy.class);
 
-        verify(factory, times(1)).create(
+        verify(factory).create(
             namingStrategyArgument.capture(),
             any(FieldExclusionStrategy.class),
             any(AdapterRegistry.class)
@@ -143,7 +142,7 @@ public class SerializerBuilderTest
         ArgumentCaptor<FieldExclusionStrategy> exclusionStrategyArgument =
             ArgumentCaptor.forClass(FieldExclusionStrategy.class);
 
-        verify(factory, times(1)).create(
+        verify(factory).create(
             any(NamingStrategy.class),
             exclusionStrategyArgument.capture(),
             any(AdapterRegistry.class)
@@ -164,7 +163,7 @@ public class SerializerBuilderTest
         ArgumentCaptor<AdapterRegistry> adapterRegistryArgument =
             ArgumentCaptor.forClass(AdapterRegistry.class);
 
-        verify(factory, times(1)).create(
+        verify(factory).create(
             any(NamingStrategy.class),
             any(FieldExclusionStrategy.class),
             adapterRegistryArgument.capture()

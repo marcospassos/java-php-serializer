@@ -37,9 +37,9 @@ public class ReferableObjectAdapterTest
 
         adapter.write(subject, writer, context);
 
-        verify(context, times(1)).getReference(subject);
+        verify(context).getReference(subject);
         verify(writer, times(0)).writeObjectReference(-1);
-        verify(decorated, times(1)).write(subject, writer, context);
+        verify(decorated).write(subject, writer, context);
     }
 
     @Test
@@ -63,8 +63,8 @@ public class ReferableObjectAdapterTest
 
         adapter.write(subject, writer, context);
 
-        verify(context, times(1)).getReference(subject);
-        verify(writer, times(1)).writeObjectReference(1);
+        verify(context).getReference(subject);
+        verify(writer).writeObjectReference(1);
         verify(decorated, times(0)).write(subject, writer, context);
     }
 }

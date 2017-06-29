@@ -2,7 +2,6 @@ package com.marcospassos.phpserializer.adapter;
 
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 
 import com.marcospassos.phpserializer.Context;
 import com.marcospassos.phpserializer.Writer;
@@ -32,13 +31,13 @@ public class MapAdapterTest
 
         InOrder order = inOrder(writer, context);
 
-        order.verify(writer, times(1)).writeArrayStart(3);
-        order.verify(writer, times(1)).writeKey(1);
-        order.verify(context, times(1)).write("a", writer);
-        order.verify(writer, times(1)).writeKey("2");
-        order.verify(context, times(1)).write("b", writer);
-        order.verify(writer, times(1)).writeKey(3);
-        order.verify(context, times(1)).write("c", writer);
-        order.verify(writer, times(1)).writeArrayEnd();
+        order.verify(writer).writeArrayStart(3);
+        order.verify(writer).writeKey(1);
+        order.verify(context).write("a", writer);
+        order.verify(writer).writeKey("2");
+        order.verify(context).write("b", writer);
+        order.verify(writer).writeKey(3);
+        order.verify(context).write("c", writer);
+        order.verify(writer).writeArrayEnd();
     }
 }
