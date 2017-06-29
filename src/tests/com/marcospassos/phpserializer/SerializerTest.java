@@ -1,6 +1,6 @@
 package com.marcospassos.phpserializer;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import com.marcospassos.phpserializer.adapter.IntegerAdapter;
 import com.marcospassos.phpserializer.exclusion.NoExclusionStrategy;

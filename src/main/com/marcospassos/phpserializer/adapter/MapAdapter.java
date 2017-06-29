@@ -1,9 +1,9 @@
 package com.marcospassos.phpserializer.adapter;
 
-import java.util.Map;
 import com.marcospassos.phpserializer.Context;
 import com.marcospassos.phpserializer.TypeAdapter;
 import com.marcospassos.phpserializer.Writer;
+import java.util.Map;
 
 /**
  * Adapter for handling maps.

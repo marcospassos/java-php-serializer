@@ -1,6 +1,5 @@
 package com.marcospassos.phpserializer.adapter;
 
-
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;

@@ -2,7 +2,6 @@
 package com.marcospassos.phpserializer;
 
 import com.marcospassos.phpserializer.state.WritingValueState;
-
 import java.lang.reflect.Modifier;
 
 /**

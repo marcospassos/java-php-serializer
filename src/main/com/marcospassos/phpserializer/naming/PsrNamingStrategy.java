@@ -1,7 +1,6 @@
 package com.marcospassos.phpserializer.naming;
 
 import com.marcospassos.phpserializer.NamingStrategy;
-
 import java.lang.reflect.Field;
 
 /**
