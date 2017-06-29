@@ -10,11 +10,13 @@ import org.junit.Test;
  */
 public class NoExclusionStrategyTest
 {
-    private class A {
+    private class A
+    {
         public int field;
     }
 
-    private class B {
+    private class B
+    {
         public int field;
     }
 

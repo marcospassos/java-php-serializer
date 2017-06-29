@@ -22,7 +22,8 @@ import org.mockito.ArgumentCaptor;
  */
 public class SerializerBuilderTest
 {
-    private class Foo {
+    private class Foo
+    {
         public int field;
     }
 
@@ -75,13 +76,13 @@ public class SerializerBuilderTest
     }
 
     @Test
-    public void exclusionStrategiesAreAggregatedIntoDisjunction() throws Exception
+    public void exclusionStrategiesAreAggregatedIntoDisjunction()
+        throws Exception
     {
         SerializerFactory factory = mock(SerializerFactory.class);
         FieldExclusionStrategy first = mock(FieldExclusionStrategy.class);
         FieldExclusionStrategy second = mock(FieldExclusionStrategy.class);
         Field field = Foo.class.getField("field");
-
 
         when(first.shouldSkipField(field)).thenReturn(false);
         when(second.shouldSkipField(field)).thenReturn(false);
@@ -102,7 +103,8 @@ public class SerializerBuilderTest
             any(AdapterRegistry.class)
         );
 
-        FieldExclusionStrategy disjunction = exclusionStrategyArgument.getValue();
+        FieldExclusionStrategy disjunction = exclusionStrategyArgument
+            .getValue();
         assertTrue(disjunction instanceof DisjunctionExclusionStrategy);
 
         assertFalse(disjunction.shouldSkipField(field));
@@ -154,7 +156,8 @@ public class SerializerBuilderTest
     }
 
     @Test
-    public void builderRegistersBuiltinAdaptersIfNoAdapterIsRegistered() throws Exception
+    public void builderRegistersBuiltinAdaptersIfNoAdapterIsRegistered()
+        throws Exception
     {
         SerializerFactory factory = mock(SerializerFactory.class);
 

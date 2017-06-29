@@ -11,7 +11,8 @@ import org.junit.Test;
  */
 public class PsrNamingStrategyTest
 {
-    private class Foo {
+    private class Foo
+    {
         public int BaR;
     }
 

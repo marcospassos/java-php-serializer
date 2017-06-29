@@ -90,7 +90,8 @@ public class ContextTest
     }
 
     @Test
-    public void getParentReturnsObjectThatContainsCurrentObject() throws Exception
+    public void getParentReturnsObjectThatContainsCurrentObject()
+        throws Exception
     {
         Writer writer = mock(Writer.class);
 
@@ -170,7 +171,8 @@ public class ContextTest
         TypeAdapter<Integer> adapter = spy(new TypeAdapter<Integer>()
         {
             @Override
-            public void write(Integer value, Writer writer, Context context){
+            public void write(Integer value, Writer writer, Context context)
+            {
             }
         });
 
@@ -192,7 +194,8 @@ public class ContextTest
     }
 
     @Test
-    public void getReferenceReturnsMinusOneIfNoReferenceForValueExists() throws Exception
+    public void getReferenceReturnsMinusOneIfNoReferenceForValueExists()
+        throws Exception
     {
         assertEquals(-1, context.getReference(new Object()));
     }

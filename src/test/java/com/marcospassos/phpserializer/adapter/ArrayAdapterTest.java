@@ -20,7 +20,7 @@ public class ArrayAdapterTest
         ArrayAdapter<Object> adapter = new ArrayAdapter<>();
         Writer writer = mock(Writer.class);
         Context context = mock(Context.class);
-        String[] array = new String[] {"a", "b", "c"};
+        String[] array = new String[]{"a", "b", "c"};
 
         adapter.write(array, writer, context);
 
@@ -45,5 +45,6 @@ public class ArrayAdapterTest
         Writer writer = mock(Writer.class);
         Context context = mock(Context.class);
 
-        adapter.write(new Object(), writer, context);}
+        adapter.write(new Object(), writer, context);
+    }
 }

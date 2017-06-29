@@ -18,7 +18,8 @@ import org.mockito.stubbing.Answer;
 
 public class ObjectAdapterTest
 {
-    private class Subject {
+    private class Subject
+    {
         private int privateField;
         protected int protectedField;
         public int publicField;
@@ -55,13 +56,18 @@ public class ObjectAdapterTest
         when(context.getNamingStrategy()).thenReturn(namingStrategy);
 
         when(namingStrategy.getClassName(Subject.class)).thenReturn("Subject");
-        when(namingStrategy.getFieldName(privateField)).thenReturn("PrivateField");
-        when(namingStrategy.getFieldName(protectedField)).thenReturn("ProtectedField");
-        when(namingStrategy.getFieldName(publicField)).thenReturn("PublicField");
+        when(namingStrategy.getFieldName(privateField))
+            .thenReturn("PrivateField");
+        when(namingStrategy.getFieldName(protectedField))
+            .thenReturn("ProtectedField");
+        when(namingStrategy.getFieldName(publicField))
+            .thenReturn("PublicField");
 
         when(exclusionStrategy.shouldSkipField(any(Field.class)))
-            .thenAnswer(new Answer<Boolean>() {
-                public Boolean answer(InvocationOnMock invocation) {
+            .thenAnswer(new Answer<Boolean>()
+            {
+                public Boolean answer(InvocationOnMock invocation)
+                {
                     Field field = invocation.getArgument(0);
 
                     return field.getName().equals("excludedField");
