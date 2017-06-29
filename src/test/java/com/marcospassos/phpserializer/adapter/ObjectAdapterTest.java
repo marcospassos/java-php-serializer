@@ -101,5 +101,7 @@ public class ObjectAdapterTest
         order.verify(context).write(3, writer);
 
         order.verify(writer).writeObjectEnd();
+
+        order.verifyNoMoreInteractions();
     }
 }
