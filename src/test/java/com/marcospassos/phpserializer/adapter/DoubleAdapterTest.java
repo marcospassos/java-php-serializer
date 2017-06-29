@@ -1,7 +1,6 @@
 package com.marcospassos.phpserializer.adapter;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import com.marcospassos.phpserializer.Context;
@@ -23,6 +22,6 @@ public class DoubleAdapterTest
 
         adapter.write(1.5, writer, context);
 
-        verify(writer, times(1)).writeFloat(1.5);
+        verify(writer).writeFloat(1.5);
     }
 }

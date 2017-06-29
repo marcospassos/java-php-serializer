@@ -35,7 +35,7 @@ public class DisjunctionExclusionStrategyTest
 
         assertTrue(strategy.shouldSkipField(field));
 
-        verify(a, times(1)).shouldSkipField(field);
+        verify(a).shouldSkipField(field);
         verify(b, times(0)).shouldSkipField(field);
     }
 

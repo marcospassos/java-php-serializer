@@ -1,7 +1,6 @@
 package com.marcospassos.phpserializer.adapter;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import com.marcospassos.phpserializer.Context;
@@ -23,6 +22,6 @@ public class StringAdapterTest
 
         adapter.write("foo", writer, context);
 
-        verify(writer, times(1)).writeString("foo");
+        verify(writer).writeString("foo");
     }
 }

@@ -3,7 +3,6 @@ package com.marcospassos.phpserializer.adapter;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
 import com.marcospassos.phpserializer.Context;
@@ -75,32 +74,32 @@ public class ObjectAdapterTest
 
         InOrder order = inOrder(writer, context);
 
-        order.verify(writer, times(1)).writeObjectStart("Subject", 3);
+        order.verify(writer).writeObjectStart("Subject", 3);
 
-        order.verify(writer, times(1)).writeProperty(
+        order.verify(writer).writeProperty(
             "PrivateField",
             "Subject",
             Modifier.PRIVATE
         );
 
-        order.verify(context, times(1)).write(1, writer);
+        order.verify(context).write(1, writer);
 
-        order.verify(writer, times(1)).writeProperty(
+        order.verify(writer).writeProperty(
             "ProtectedField",
             "Subject",
             Modifier.PROTECTED
         );
 
-        order.verify(context, times(1)).write(2, writer);
+        order.verify(context).write(2, writer);
 
-        order.verify(writer, times(1)).writeProperty(
+        order.verify(writer).writeProperty(
             "PublicField",
             "Subject",
             Modifier.PUBLIC
         );
 
-        order.verify(context, times(1)).write(3, writer);
+        order.verify(context).write(3, writer);
 
-        order.verify(writer, times(1)).writeObjectEnd();
+        order.verify(writer).writeObjectEnd();
     }
 }
