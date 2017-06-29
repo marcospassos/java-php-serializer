@@ -27,17 +27,31 @@ public class MapAdapterTest
         map.put("2", "b");
         map.put(3, "c");
 
+        // The verify check is split by entries once HashMap is an unordered map
+
         adapter.write(map, writer, context);
 
         InOrder order = inOrder(writer, context);
 
         order.verify(writer).writeArrayStart(3);
-        order.verify(writer).writeKey(1);
-        order.verify(context).write("a", writer);
-        order.verify(writer).writeKey("2");
-        order.verify(context).write("b", writer);
-        order.verify(writer).writeKey(3);
-        order.verify(context).write("c", writer);
+
+        InOrder first = inOrder(writer, context);
+
+        first.verify(writer).writeKey(1);
+        first.verify(context).write("a", writer);
+
+        InOrder second = inOrder(writer, context);
+
+        second.verify(writer).writeKey("2");
+        second.verify(context).write("b", writer);
+
+        InOrder third = inOrder(writer, context);
+
+        third.verify(writer).writeKey(3);
+        third.verify(context).write("c", writer);
+
         order.verify(writer).writeArrayEnd();
+
+        order.verifyNoMoreInteractions();
     }
 }
