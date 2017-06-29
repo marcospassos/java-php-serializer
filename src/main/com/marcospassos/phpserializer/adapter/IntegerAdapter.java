@@ -1,8 +1,8 @@
 package com.marcospassos.phpserializer.adapter;
 
 import com.marcospassos.phpserializer.Context;
-import com.marcospassos.phpserializer.Writer;
 import com.marcospassos.phpserializer.TypeAdapter;
+import com.marcospassos.phpserializer.Writer;
 
 /**
  * Adapter for boolean values.

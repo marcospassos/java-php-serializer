@@ -1,13 +1,13 @@
 package com.marcospassos.phpserializer;
 
-import org.junit.Test;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.junit.Test;
 
 /**
  * @author Marcos Passos

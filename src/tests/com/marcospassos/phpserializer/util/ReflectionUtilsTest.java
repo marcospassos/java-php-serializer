@@ -1,12 +1,10 @@
 package com.marcospassos.phpserializer.util;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import org.junit.Test;
-
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Field;
+import org.junit.Test;
 
 /**
  * @author Marcos Passos

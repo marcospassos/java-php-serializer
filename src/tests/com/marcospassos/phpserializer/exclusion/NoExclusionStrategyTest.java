@@ -1,6 +1,6 @@
 package com.marcospassos.phpserializer.exclusion;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
