@@ -13,7 +13,7 @@ after_success:
 deploy:
   -
     provider: script
-    script: .travis/deploy.sh
+    script: .travis/deploy-jars.sh
     skip_cleanup: true
     on:
       repo: marcospassos/java-php-serializer
@@ -21,7 +21,7 @@ deploy:
       jdk: oraclejdk8
   -
     provider: script
-    script: .travis/deploy.sh
+    script: .travis/deploy-javadocs.sh
     skip_cleanup: true
     on:
       repo: marcospassos/java-php-serializer
