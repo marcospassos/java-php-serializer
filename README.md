@@ -1,5 +1,5 @@
-PHP Serializer for Java
-=======================
+Java PHP Serializer
+===================
 [![Build Status][travis-badge]][travis-status]
 [![Coverage Status][coverall-badge]][coverall-status]
 [![Java 7+][java-badge]][java]
@@ -14,6 +14,9 @@ includes:
 - Objects
 - Serializable (custom serializable objects)
 - Object and variable references
+
+The [API documentation][api-docs] is available on GitHub Pages more convenient viewing in
+browser.
 
 > **A word of notice**
 >
@@ -232,6 +235,7 @@ DEALINGS IN THE SOFTWARE.
 [java-badge]: https://img.shields.io/badge/java-7+-4c7e9f.svg
 [java]: http://java.oracle.com
 [mit-license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[api-docs]: https://marcospassos.github.io/java-php-serializer/docs/api/latest/
 [maven-central]: https://maven-badges.herokuapp.com/maven-central/com.marcospassos/phpserializer
 [soluble-java]: https://github.com/belgattitude/soluble-japha
 [author-page]: http://github.com/marcospassos
