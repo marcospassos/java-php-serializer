@@ -25,5 +25,5 @@ deploy:
     skip_cleanup: true
     on:
       repo: marcospassos/java-php-serializer
-      tags: true
+      branch: master
       jdk: oraclejdk8
