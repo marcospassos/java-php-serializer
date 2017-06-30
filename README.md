@@ -26,9 +26,6 @@ browser.
 
 ## Use case
 
-This library turns out useful when you need to transmit complex data structures
-from Java to PHP and performance is a concern.
-
 One of the easier way to exchange data between Java and PHP consists in
 serializing the value to a data-interchanging format, such as JSON or XML,
 send it through a communication channel and finally deserialize it back to the
