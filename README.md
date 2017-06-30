@@ -24,7 +24,7 @@ browser.
 > **A word of notice**
 >
 > This library does not provide any mechanism for creating a communication
-> channel between Java and PHP. For such purpose consider using 
+> channel between Java and PHP. For such purpose, consider using 
 [Soluble Java][soluble-java].
 
 ## Use case
@@ -37,8 +37,8 @@ of deserializing complex objects in PHP is very high.
 
 Most of the serialization libraries in PHP use reflection for re-hydrating
 objects, and it becomes an issue when you have to deserialize large structures
-with hundreds of objects. Deserializing data from PHP serialization format, on
-the other hand, is much faster.
+with hundreds of objects. Fortunately, PHP's native serialization is fast and 
+the `unserialize()` function can handle such cases in a few milliseconds.
 
 This library implements the full format specification through a friendly API 
 that encapsulates the complexity of the serialization process.
