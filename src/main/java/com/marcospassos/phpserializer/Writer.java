@@ -154,6 +154,7 @@ public class Writer
      * Writes a private object property to the buffer.
      *
      * @param name The property name.
+     * @param className The name of the class which the property is part of.
      */
     public void writePrivateProperty(String name, String className)
     {

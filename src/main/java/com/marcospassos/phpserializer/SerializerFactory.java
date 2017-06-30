@@ -14,6 +14,8 @@ public class SerializerFactory
      * @param namingStrategy The strategy for naming classes and fields.
      * @param exclusionStrategy The strategy for excluding fields.
      * @param adapterRegistry The registry of type adapters.
+     *
+     * @return The serializer instance.
      */
     public Serializer create(
         NamingStrategy namingStrategy,

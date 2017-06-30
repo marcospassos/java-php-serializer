@@ -19,6 +19,8 @@ public class DisjunctionExclusionStrategy implements FieldExclusionStrategy
 
     /**
      * Creates a disjunction from the specified strategies.
+     *
+     * @param strategies The list of strategies.
      */
     public DisjunctionExclusionStrategy(FieldExclusionStrategy... strategies)
     {
