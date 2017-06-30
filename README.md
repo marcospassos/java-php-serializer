@@ -1,7 +1,9 @@
 PHP Serializer for Java
 =======================
-[![Build Status][img-travis-badge]][link-travis-status]
-[![Coverage Status][img-coverall-badge]][link-coverall-status]
+[![Build Status][travis-badge]][travis-status]
+[![Coverage Status][coverall-badge]][coverall-status]
+[![Java 7+][java-badge]][java]
+[![License][mit-license-badge]](LICENSE)
 
 A Java library for serializing objects as PHP serialization format.
 
@@ -17,7 +19,7 @@ includes:
 >
 > This library does not provide any mechanism for creating a communication
 > channel between Java and PHP. For such purpose consider using 
-[Soluble Java][link-soluble-java].
+[Soluble Java][soluble-java].
 
 ## Use case
 
@@ -43,7 +45,7 @@ that encapsulates the complexity of the serialization process.
 ### Maven
 
 The PHP Serializer is available in the 
-[Maven Central repository][link-maven-central].
+[Maven Central repository][maven-central].
 Any Maven based project can use it directly by adding the appropriate entries
 to the `dependencies` section of its `pom.xml` file:
 
@@ -59,7 +61,7 @@ to the `dependencies` section of its `pom.xml` file:
 
 ### Binaries
 
-Packaged JARs can be downloaded directly from the [releases page][link-releases] 
+Packaged JARs can be downloaded directly from the [releases page][releases-page] 
 and extracted using tar or unzip.
 
 ## Usage
@@ -179,9 +181,9 @@ recently.
 
 Contributions to the package are always welcome!
 
-* Report any bugs or issues you find on the [issue tracker][link-issue-tracker].
+* Report any bugs or issues you find on the [issue tracker][issue-tracker].
 * You can grab the source code at the package's
-[Git repository][link-repository].
+[Git repository][repository].
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for
 details.
@@ -193,8 +195,8 @@ marcos@marcospassos.com instead of using the issue tracker.
 
 ## Credits
 
-* [Marcos Passos][link-author]
-- [All Contributors][link-contributors]
+* [Marcos Passos][author-page]
+- [All Contributors][contributors-page]
 
 
 ## License
@@ -223,15 +225,17 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 ```
 
-[img-coverall-badge]: https://coveralls.io/repos/github/marcospassos/java-php-serializer/badge.svg
-[link-coverall-status]: https://coveralls.io/github/marcospassos/java-php-serializer
-[img-coverall-badge]: https://coveralls.io/repos/github/marcospassos/java-php-serializer/badge.svg
-[img-travis-badge]: https://travis-ci.org/marcospassos/java-php-serializer.svg?branch=master
-[link-travis-status]: https://travis-ci.org/marcospassos/java-php-serializer
-[link-maven-central]: https://maven-badges.herokuapp.com/maven-central/com.marcospassos/phpserializer
-[link-soluble-java]: https://github.com/belgattitude/soluble-japha
-[link-author]: http://github.com/marcospassos
-[link-contributors]: https://github.com/marcospassos/java-php-serializer/graphs/contributors
-[link-issue-tracker]: https://github.com/marcospassos/java-php-serializer/issues
-[link-repository]: https://github.com/marcospassos/java-php-serializer
-[link-releases]: https://github.com/marcospassos/java-php-serializer/releases
+[coverall-status]: https://coveralls.io/github/marcospassos/java-php-serializer
+[coverall-badge]: https://coveralls.io/repos/github/marcospassos/java-php-serializer/badge.svg
+[travis-badge]: https://travis-ci.org/marcospassos/java-php-serializer.svg?branch=master
+[travis-status]: https://travis-ci.org/marcospassos/java-php-serializer
+[java-badge]: https://img.shields.io/badge/java-7+-4c7e9f.svg
+[java]: http://java.oracle.com
+[mit-license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[maven-central]: https://maven-badges.herokuapp.com/maven-central/com.marcospassos/phpserializer
+[soluble-java]: https://github.com/belgattitude/soluble-japha
+[author-page]: http://github.com/marcospassos
+[contributors-page]: https://github.com/marcospassos/java-php-serializer/graphs/contributors
+[issue-tracker]: https://github.com/marcospassos/java-php-serializer/issues
+[repository]: https://github.com/marcospassos/java-php-serializer
+[releases-page]: https://github.com/marcospassos/java-php-serializer/releases
