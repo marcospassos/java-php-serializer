@@ -1,11 +1,12 @@
 PHP Serializer for Java
 =======================
-[![Build Status](https://travis-ci.org/marcospassos/java-php-serializer.svg?branch=master)](https://travis-ci.org/marcospassos/java-php-serializer)
-[![Coverage Status](https://coveralls.io/repos/github/marcospassos/java-php-serializer/badge.svg)](https://coveralls.io/github/marcospassos/java-php-serializer)
+[![Build Status][img-travis-badge]][link-travis-status]
+[![Coverage Status][img-coverall-badge]][link-coverall-status]
 
-A Java library for serializing objects into PHP serialization format.
+A Java library for serializing objects as PHP serialization format.
 
-The library fully implements the format specification, which includes:
+The library fully implements the PHP serialization format specification, which 
+includes:
 
 - Scalar values
 - Objects
@@ -15,58 +16,59 @@ The library fully implements the format specification, which includes:
 > **A word of notice**
 >
 > This library does not provide any mechanism for creating a communication
-> channel between Java and PHP. For such purpose consider using [Soluble Java]().
+> channel between Java and PHP. For such purpose consider using 
+[Soluble Java][link-soluble-java].
 
 ## Use case
 
-This library turns out useful when your need to send complex data structures
-from Java to PHP, but performance is a concern.
+This library turns out useful when your need to transmit complex data structures
+from Java to PHP and performance is a concern.
 
-One of the easier way to transmit data between Java and PHP consists in
+One of the easier way to exchange data between Java and PHP consists in
 serializing the value to a data-interchanging format, such as JSON or XML,
-send it through a communication channel, and finally deserialize it back to the
+send it through a communication channel and finally deserialize it back to the
 original form on the PHP side. The problem with this approach is that the cost
-of deserializing complex objects in PHP very high.
+of deserializing complex objects in PHP is very high.
 
-Most of the serialization libraries in PHP use Reflection for re-hydrating
+Most of the serialization libraries in PHP use reflection for re-hydrating
 objects, and it becomes an issue when you have to deserialize large structures
 with hundreds of objects. Deserializing data from PHP serialization format, on
 the other hand, is much faster.
 
-This library implements the full format specification through a friendly API
+This library implements the full format specification through a friendly API 
 that encapsulates the complexity of the serialization process.
-
 
 ## Installation
 
 ### Maven
 
-The PHP Serializer is in the standard [Maven Central repository]().
+The PHP Serializer is available in the 
+[Maven Central repository][link-maven-central].
 Any Maven based project can use it directly by adding the appropriate entries
 to the `dependencies` section of its `pom.xml` file:
 
 ```xml
 <dependencies>
   <dependency>
-    <groupId>com.foundationdb</groupId>
-    <artifactId>fdb-sql-parser</artifactId>
-    <version>1.5.0</version>
+    <groupId>com.marcospassos</groupId>
+    <artifactId>phpserializer</artifactId>
+    <version>0.1.0</version>
   </dependency>
 </dependencies>
 ```
 
 ### Binaries
 
-Packaged JARs can be downloaded directly from the [releases page]() and
-extracted using tar or unzip.
+Packaged JARs can be downloaded directly from the [releases page][link-releases] 
+and extracted using tar or unzip.
 
 ## Usage
 
 ### How to serialize data
 
 The first step to serialize a Java object into a PHP serialization format
-string is to create a Serializer instance. The library ships a serializer
-builder that help us with this task:
+string is to create a Serializer instance according to your application domain 
+model. The library ships a builder that help us with this task:
 
 ```java
 Serializer serializer = new SerializerBuilder()
@@ -85,8 +87,8 @@ Serializer serializer = new SerializerBuilder()
 ```
 
 Now you have a `Serializer` instance configured according to your application
-domain model. To serialize a value, just call the `serialize(Object object)` on
-the `serializer` instance:
+domain model. To serialize a value, just invoke `serialize(Object object)` on
+the serializer instance:
 
 ```java
 List list = new ArrayList();
@@ -103,11 +105,9 @@ System.out.println(serializer.serialize(list));
 A naming strategy allows you to translate the name of classes and fields
 according to the target domain model. The library ships with a built-in adapter
 that converts Java packages to PHP namespaces in accordance with PSR-1 rules.
-However,
-
-If the PSR strategy does not fit your needs, implementing a custom naming
-strategy is straightforward. Takes as reference the following strategy that
-appends an underscore to all private fields:
+If the PSR strategy does not fit your needs you can easily implement a custom 
+naming strategy. Takes as reference the following strategy that appends an 
+underscore to all private fields:
 
 ```java
 public class UnderscoreNamingStrategy implements NamingStrategy
@@ -130,8 +130,8 @@ public class UnderscoreNamingStrategy implements NamingStrategy
 
 ### Type Adapters
 
-A type adapter provides the serializer the logic for how to serialize a
-specific type. The following example shows how to create a custom type adapter
+A type adapter provides the serializer the logic for how to encode a specific 
+type. The following example shows how to create a custom type adapter
 to serialize Enums as string using the name of the enum constant:
 
 ```java
@@ -144,7 +144,7 @@ public class EnumTypeAdapter implements TypeAdapter<Enum>
 }
 ```
 
-Notice that circular references are handled as per case basis, once it not
+Notice that circular references are handled as per case basis, once it is not
 always the desirable. For instance, you may not want to serialize lists as
 objects references, as array is probably the most appropriate corresponding
 type in PHP. The following example shows how to handle such cases:
@@ -170,10 +170,36 @@ public class MyCustomAdapter implements TypeAdapter<CustomObject>
 }
 ```
 
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed 
+recently.
+
+## Contributing
+
+Contributions to the package are always welcome!
+
+* Report any bugs or issues you find on the [issue tracker][link-issue-tracker].
+* You can grab the source code at the package's
+[Git repository][link-repository].
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for
+details.
+
+## Security
+
+If you discover any security related issues, please email
+marcos@marcospassos.com instead of using the issue tracker.
+
+## Credits
+
+* [Marcos Passos][link-author]
+- [All Contributors][link-contributors]
+
+
 ## License
 
 All contents of this package are licensed under the [MIT license](LICENSE).
-
 
 ```
 Copyright (c) 2017 Marcos Passos <marcos@marcospassos.com>
@@ -196,3 +222,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 ```
+
+[img-coverall-badge]: https://coveralls.io/repos/github/marcospassos/java-php-serializer/badge.svg
+[link-coverall-status]: https://coveralls.io/github/marcospassos/java-php-serializer
+[img-coverall-badge]: https://coveralls.io/repos/github/marcospassos/java-php-serializer/badge.svg
+[img-travis-badge]: https://travis-ci.org/marcospassos/java-php-serializer.svg?branch=master
+[link-travis-status]: https://travis-ci.org/marcospassos/java-php-serializer
+[link-maven-central]: https://maven-badges.herokuapp.com/maven-central/com.marcospassos/phpserializer
+[link-soluble-java]: https://github.com/belgattitude/soluble-japha
+[link-author]: http://github.com/marcospassos
+[link-contributors]: https://github.com/marcospassos/java-php-serializer/graphs/contributors
+[link-issue-tracker]: https://github.com/marcospassos/java-php-serializer/issues
+[link-repository]: https://github.com/marcospassos/java-php-serializer
+[link-releases]: https://github.com/marcospassos/java-php-serializer/releases
