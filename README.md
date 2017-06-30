@@ -4,6 +4,9 @@ Java PHP Serializer
 [![Coverage Status][coverall-badge]][coverall-status]
 [![Java 7+][java-badge]][java]
 [![License][mit-license-badge]](LICENSE)
+[![Latest release][version-badge]][releases-page]
+
+Latest release: [0.1.0][latest-release]
 
 A Java library for serializing objects as PHP serialization format.
 
@@ -232,6 +235,7 @@ DEALINGS IN THE SOFTWARE.
 [java-badge]: https://img.shields.io/badge/java-7+-4c7e9f.svg
 [java]: http://java.oracle.com
 [mit-license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[version-badge]: https://badge.fury.io/gh/marcospassos%2Fjava-php-serializer.svg
 [api-docs]: https://marcospassos.github.io/java-php-serializer/docs/api/latest/
 [maven-central]: https://maven-badges.herokuapp.com/maven-central/com.marcospassos/phpserializer
 [soluble-java]: https://github.com/belgattitude/soluble-japha
@@ -240,3 +244,4 @@ DEALINGS IN THE SOFTWARE.
 [issue-tracker]: https://github.com/marcospassos/java-php-serializer/issues
 [repository]: https://github.com/marcospassos/java-php-serializer
 [releases-page]: https://github.com/marcospassos/java-php-serializer/releases
+[latest-release]: https://github.com/marcospassos/java-php-serializer/releases/tag/0.1.0
