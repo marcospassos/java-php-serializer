@@ -1,13 +1,18 @@
 package com.marcospassos.phpserializer;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-import org.junit.Test;
 
 /**
  * @author Marcos Passos
@@ -21,10 +26,16 @@ public class AdapterRegistryTest
         TypeAdapter numberAdapter = mock(TypeAdapter.class);
         TypeAdapter integerAdapter = mock(TypeAdapter.class);
         TypeAdapter doubleAdapter = mock(TypeAdapter.class);
+        TypeAdapter collectionAdapter = mock(TypeAdapter.class);
+        TypeAdapter setAdapter = mock(TypeAdapter.class);
+        TypeAdapter hashSetAdapter = mock(TypeAdapter.class);
 
         Map<Class, TypeAdapter> adapters = new LinkedHashMap<>();
         adapters.put(Double.class, doubleAdapter);
+        adapters.put(Set.class, setAdapter);
+        adapters.put(Collection.class, collectionAdapter);
         adapters.put(Number.class, numberAdapter);
+        adapters.put(HashSet.class, hashSetAdapter);
         adapters.put(Integer.class, integerAdapter);
 
         AdapterRegistry registry = new AdapterRegistry(adapters);
@@ -32,6 +43,9 @@ public class AdapterRegistryTest
         assertSame(doubleAdapter, registry.getAdapter(Double.class));
         assertSame(integerAdapter, registry.getAdapter(Integer.class));
         assertSame(numberAdapter, registry.getAdapter(Float.class));
+        assertSame(hashSetAdapter, registry.getAdapter(HashSet.class));
+        assertSame(setAdapter, registry.getAdapter(TreeSet.class));
+        assertSame(collectionAdapter, registry.getAdapter(List.class));
     }
 
     @Test(expected = IllegalArgumentException.class)
