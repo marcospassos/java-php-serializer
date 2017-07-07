@@ -6,7 +6,7 @@ import static org.mockito.Mockito.mock;
 import com.marcospassos.phpserializer.Context;
 import com.marcospassos.phpserializer.Writer;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Collection;
 import org.junit.Test;
 import org.mockito.InOrder;
 
@@ -14,15 +14,15 @@ import org.mockito.InOrder;
  * @author Marcos Passos
  * @since 1.0
  */
-public class ListAdapterTest
+public class CollectionAdapterTest
 {
     @Test
     public void write() throws Exception
     {
-        ListAdapter<String> adapter = new ListAdapter<>();
+        CollectionAdapter<String> adapter = new CollectionAdapter<>();
         Writer writer = mock(Writer.class);
         Context context = mock(Context.class);
-        List<String> array = Arrays.asList("a", "b", "c");
+        Collection<String> array = Arrays.asList("a", "b", "c");
 
         adapter.write(array, writer, context);
 
