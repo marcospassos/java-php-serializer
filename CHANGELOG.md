@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 There are currently no unreleased changes.
 
+## [0.3.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.3.0) (2017-07-07)
+
+### Changed
+
+- Calling `SerializerBuilder::registerBuiltinAdapters()` now registers
+`CollectionAdapter` for any collection and not only for `Map` and `Set`.
+
 ## [0.2.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.2.0) (2017-07-06)
 
 ### Changed
