@@ -12,6 +12,7 @@ import com.marcospassos.phpserializer.exclusion.DisjunctionExclusionStrategy;
 import com.marcospassos.phpserializer.exclusion.NoExclusionStrategy;
 import com.marcospassos.phpserializer.naming.PsrNamingStrategy;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -165,9 +166,7 @@ public class SerializerBuilder
         registerAdapter(double[].class, arrayAdapter);
         registerAdapter(char[].class, arrayAdapter);
         registerAdapter(short[].class, arrayAdapter);
-        registerAdapter(Map.class, new MapAdapter());
-        registerAdapter(List.class, new CollectionAdapter());
-        registerAdapter(Set.class, new CollectionAdapter());
+        registerAdapter(Collection.class, new CollectionAdapter());
         registerAdapter(Boolean.class, new BooleanAdapter());
         registerAdapter(Integer.class, new IntegerAdapter());
         registerAdapter(String.class, new StringAdapter());
