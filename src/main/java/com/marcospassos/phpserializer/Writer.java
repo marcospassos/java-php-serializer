@@ -1,8 +1,8 @@
 
 package com.marcospassos.phpserializer;
 
-import com.marcospassos.phpserializer.state.WritingValueState;
 import java.lang.reflect.Modifier;
+import com.marcospassos.phpserializer.state.WritingValueState;
 
 /**
  * Writes a values in PHP's serialization format.

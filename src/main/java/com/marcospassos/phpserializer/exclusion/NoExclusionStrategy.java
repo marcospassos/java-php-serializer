@@ -1,7 +1,7 @@
 package com.marcospassos.phpserializer.exclusion;
 
-import com.marcospassos.phpserializer.FieldExclusionStrategy;
 import java.lang.reflect.Field;
+import com.marcospassos.phpserializer.FieldExclusionStrategy;
 
 /**
  * A strategy to exclude nothing.

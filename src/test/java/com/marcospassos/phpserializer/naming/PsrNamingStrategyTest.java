@@ -1,9 +1,9 @@
 package com.marcospassos.phpserializer.naming;
 
-import static org.junit.Assert.assertEquals;
-
 import java.lang.reflect.Field;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Marcos Passos

@@ -1,12 +1,12 @@
 package com.marcospassos.phpserializer.adapter;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-
 import com.marcospassos.phpserializer.Context;
 import com.marcospassos.phpserializer.Writer;
 import org.junit.Test;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 /**
  * @author Marcos Passos

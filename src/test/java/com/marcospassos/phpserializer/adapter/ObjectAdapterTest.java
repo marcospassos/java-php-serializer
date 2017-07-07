@@ -1,20 +1,20 @@
 package com.marcospassos.phpserializer.adapter;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import com.marcospassos.phpserializer.Context;
 import com.marcospassos.phpserializer.FieldExclusionStrategy;
 import com.marcospassos.phpserializer.NamingStrategy;
 import com.marcospassos.phpserializer.Writer;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ObjectAdapterTest
 {

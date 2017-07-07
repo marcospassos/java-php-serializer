@@ -1,11 +1,11 @@
 package com.marcospassos.phpserializer;
 
-import static org.junit.Assert.assertEquals;
-
 import com.marcospassos.phpserializer.adapter.IntegerAdapter;
 import com.marcospassos.phpserializer.exclusion.NoExclusionStrategy;
 import com.marcospassos.phpserializer.naming.PsrNamingStrategy;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Marcos Passos

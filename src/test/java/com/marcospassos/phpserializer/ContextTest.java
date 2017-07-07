@@ -1,5 +1,9 @@
 package com.marcospassos.phpserializer;
 
+import java.util.ArrayList;
+import org.junit.Before;
+import org.junit.Test;
+
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
@@ -7,10 +11,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import org.junit.Before;
-import org.junit.Test;
 
 /**
  * @author Marcos Passos

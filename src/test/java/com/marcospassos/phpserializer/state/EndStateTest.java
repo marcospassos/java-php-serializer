@@ -1,8 +1,8 @@
 package com.marcospassos.phpserializer.state;
 
-import static org.junit.Assert.assertFalse;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
 
 /**
  * @author Marcos Passos

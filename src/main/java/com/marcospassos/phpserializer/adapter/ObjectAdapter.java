@@ -1,14 +1,14 @@
 package com.marcospassos.phpserializer.adapter;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 import com.marcospassos.phpserializer.Context;
 import com.marcospassos.phpserializer.FieldExclusionStrategy;
 import com.marcospassos.phpserializer.NamingStrategy;
 import com.marcospassos.phpserializer.TypeAdapter;
 import com.marcospassos.phpserializer.Writer;
 import com.marcospassos.phpserializer.util.ReflectionUtils;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Adapter for string values.

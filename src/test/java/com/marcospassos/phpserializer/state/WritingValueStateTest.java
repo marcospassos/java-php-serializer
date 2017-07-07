@@ -1,12 +1,12 @@
 package com.marcospassos.phpserializer.state;
 
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-
 import com.marcospassos.phpserializer.WriterState;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
 /**
  * @author Marcos Passos

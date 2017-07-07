@@ -1,7 +1,7 @@
 package com.marcospassos.phpserializer.naming;
 
-import com.marcospassos.phpserializer.NamingStrategy;
 import java.lang.reflect.Field;
+import com.marcospassos.phpserializer.NamingStrategy;
 
 /**
  * Translates names of classes and methods from Java to PHP PSR-1 standard.

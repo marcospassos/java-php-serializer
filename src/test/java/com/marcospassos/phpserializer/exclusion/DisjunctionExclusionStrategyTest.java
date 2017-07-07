@@ -1,15 +1,15 @@
 package com.marcospassos.phpserializer.exclusion;
 
+import java.lang.reflect.Field;
+import com.marcospassos.phpserializer.FieldExclusionStrategy;
+import org.junit.Test;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import com.marcospassos.phpserializer.FieldExclusionStrategy;
-import java.lang.reflect.Field;
-import org.junit.Test;
 
 /**
  * @author Marcos Passos

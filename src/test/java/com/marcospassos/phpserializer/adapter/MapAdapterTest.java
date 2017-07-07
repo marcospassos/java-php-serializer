@@ -1,14 +1,14 @@
 package com.marcospassos.phpserializer.adapter;
 
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.mock;
-
-import com.marcospassos.phpserializer.Context;
-import com.marcospassos.phpserializer.Writer;
 import java.util.HashMap;
 import java.util.Map;
+import com.marcospassos.phpserializer.Context;
+import com.marcospassos.phpserializer.Writer;
 import org.junit.Test;
 import org.mockito.InOrder;
+
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.mock;
 
 /**
  * @author Marcos Passos

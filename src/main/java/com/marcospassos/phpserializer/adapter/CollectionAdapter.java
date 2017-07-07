@@ -1,9 +1,9 @@
 package com.marcospassos.phpserializer.adapter;
 
+import java.util.Collection;
 import com.marcospassos.phpserializer.Context;
 import com.marcospassos.phpserializer.TypeAdapter;
 import com.marcospassos.phpserializer.Writer;
-import java.util.Collection;
 
 /**
  * Adapter for handling collections.

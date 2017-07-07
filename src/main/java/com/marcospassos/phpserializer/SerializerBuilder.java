@@ -1,22 +1,20 @@
 package com.marcospassos.phpserializer;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.marcospassos.phpserializer.adapter.ArrayAdapter;
 import com.marcospassos.phpserializer.adapter.BooleanAdapter;
-import com.marcospassos.phpserializer.adapter.IntegerAdapter;
 import com.marcospassos.phpserializer.adapter.CollectionAdapter;
-import com.marcospassos.phpserializer.adapter.MapAdapter;
+import com.marcospassos.phpserializer.adapter.IntegerAdapter;
 import com.marcospassos.phpserializer.adapter.ObjectAdapter;
 import com.marcospassos.phpserializer.adapter.ReferableObjectAdapter;
 import com.marcospassos.phpserializer.adapter.StringAdapter;
 import com.marcospassos.phpserializer.exclusion.DisjunctionExclusionStrategy;
 import com.marcospassos.phpserializer.exclusion.NoExclusionStrategy;
 import com.marcospassos.phpserializer.naming.PsrNamingStrategy;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Provides a friendly API for creating instances of {@link Serializer}.

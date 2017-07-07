@@ -1,5 +1,13 @@
 package com.marcospassos.phpserializer;
 
+import java.lang.reflect.Field;
+import java.util.Map;
+import com.marcospassos.phpserializer.exclusion.DisjunctionExclusionStrategy;
+import com.marcospassos.phpserializer.exclusion.NoExclusionStrategy;
+import com.marcospassos.phpserializer.naming.PsrNamingStrategy;
+import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
@@ -7,14 +15,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import com.marcospassos.phpserializer.exclusion.DisjunctionExclusionStrategy;
-import com.marcospassos.phpserializer.exclusion.NoExclusionStrategy;
-import com.marcospassos.phpserializer.naming.PsrNamingStrategy;
-import java.lang.reflect.Field;
-import java.util.Map;
-import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 
 /**
  * @author Marcos Passos
