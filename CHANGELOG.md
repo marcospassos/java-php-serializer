@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 There are currently no unreleased changes.
 
+## [0.4.1](https://github.com/marcospassos/java-php-serializer/releases/tag/0.4.1) (2017-07-09)
+
+### Changed
+
+- Fix reference counting logic.
+- Sets pointer in sub writes to keep parent's writer counting.
+
 ## [0.4.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.4.0) (2017-07-09)
 
 ### Changed
