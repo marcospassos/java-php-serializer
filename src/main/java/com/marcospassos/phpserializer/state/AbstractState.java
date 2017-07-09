@@ -13,8 +13,18 @@ import com.marcospassos.phpserializer.WriterState;
  * @author Marcos Passos
  * @since 1.0
  */
-public abstract class AbstractState implements WriterState
+abstract class AbstractState implements WriterState
 {
+    public WriterState serializableBegin()
+    {
+        throw new IllegalStateException();
+    }
+
+    public WriterState serializableEnd()
+    {
+        throw new IllegalStateException();
+    }
+
     public WriterState objectBegin()
     {
         throw new IllegalStateException();

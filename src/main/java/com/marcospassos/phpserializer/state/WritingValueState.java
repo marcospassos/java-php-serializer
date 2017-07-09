@@ -41,6 +41,12 @@ public class WritingValueState extends AbstractState
     }
 
     @Override
+    public WriterState serializableBegin()
+    {
+        return new WritingSerializableObjectState(parent);
+    }
+
+    @Override
     public WriterState objectBegin()
     {
         return new WritingObjectState(parent);

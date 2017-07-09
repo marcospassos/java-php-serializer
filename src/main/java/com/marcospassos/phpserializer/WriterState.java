@@ -27,6 +27,28 @@ public interface WriterState
      * @throws IllegalStateException if the current state does not allow the
      * transition to the new state.
      */
+    WriterState serializableBegin();
+
+    /**
+     * Returns the new state generated as a result of transitions from the
+     * current state to the new state.
+     *
+     * @return WriterState The new state.
+     *
+     * @throws IllegalStateException if the current state does not allow the
+     * transition to the new state.
+     */
+    WriterState serializableEnd();
+
+    /**
+     * Returns the new state generated as a result of transitions from the
+     * current state to the new state.
+     *
+     * @return WriterState The new state.
+     *
+     * @throws IllegalStateException if the current state does not allow the
+     * transition to the new state.
+     */
     WriterState objectBegin();
 
     /**

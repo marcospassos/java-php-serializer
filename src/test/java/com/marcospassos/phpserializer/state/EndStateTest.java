@@ -10,7 +10,6 @@ import static org.junit.Assert.assertFalse;
  */
 public class EndStateTest
 {
-
     private FinishedState state = new FinishedState();
 
     @Test
@@ -35,6 +34,18 @@ public class EndStateTest
     public void objectEndIsNotAllowed() throws Exception
     {
         state.objectEnd();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void serializableObjectBeginIsNotAllowed() throws Exception
+    {
+        state.serializableBegin();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void serializableObjectEndIsNotAllowed() throws Exception
+    {
+        state.serializableEnd();
     }
 
     @Test(expected = IllegalStateException.class)

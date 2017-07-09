@@ -2,6 +2,9 @@
 package com.marcospassos.phpserializer;
 
 import java.lang.reflect.Modifier;
+import java.util.function.Consumer;
+import com.marcospassos.phpserializer.state.FinishedState;
+import com.marcospassos.phpserializer.state.WritingSerializableObjectState;
 import com.marcospassos.phpserializer.state.WritingValueState;
 
 /**
@@ -18,14 +21,16 @@ public class Writer
     private StringBuffer buffer;
 
     /**
+     * The reference counter.
+     */
+    private int pointer = 1;
+
+    /**
      * The current state of the writer.
      */
     private WriterState state;
 
-    /**
-     * The reference counter.
-     */
-    private int pointer = 1;
+    private Writer subWriter;
 
     /**
      * Creates a new writer using an internal buffer.
@@ -60,21 +65,39 @@ public class Writer
      * Writes a custom serialized object to the buffer.
      *
      * @param className The fully-qualified name of the class.
-     * @param data The serialized data.
+     *
+     * @return A writer to be used to custom write the serializable object.
      */
-    public void writeObject(String className, String data)
+    public Writer writeSerializableObjectStart(String className)
     {
-        setState(state.value());
+        setState(state.serializableBegin());
 
         buffer.append("C:");
         buffer.append(className.length());
         buffer.append(":\"");
         buffer.append(className);
         buffer.append("\":");
+
+        subWriter = new Writer();
+
+        return subWriter;
+    }
+
+    void writeSerializableObjectEnd() {
+        setState(state.serializableEnd());
+
+        if (!(subWriter.state instanceof FinishedState)) {
+            throw new IllegalStateException();
+        }
+
+        String data = subWriter.getResult();
+
         buffer.append(data.length());
         buffer.append(":{");
         buffer.append(data);
         buffer.append("}");
+
+        pointer += subWriter.getPointer();
     }
 
     /**
@@ -336,7 +359,7 @@ public class Writer
      *
      * @param state The new state.
      */
-    private void setState(WriterState state)
+    protected void setState(WriterState state)
     {
         if (state.isReferable()) {
             pointer++;

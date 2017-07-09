@@ -39,9 +39,25 @@ public class WriterTest
     public void writeSerializableObject() throws Exception
     {
         Writer writer = new Writer();
-        writer.writeObject("Foo", "i:1");
+        Writer objectWriter = writer.writeSerializableObjectStart("Foo");
 
-        assertEquals("C:3:\"Foo\":3:{i:1}", writer.getResult());
+        objectWriter.writeArrayStart(1);
+        objectWriter.writeKey(0);
+        objectWriter.writeString("bar");
+        objectWriter.writeArrayEnd();
+
+        writer.writeSerializableObjectEnd();
+
+        assertEquals("C:3:\"Foo\":20:{a:1:{i:0;s:3:\"bar\";}}", writer.getResult());
+        assertEquals(3, writer.getPointer());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void writeSerializableObjectEndFailsIfNothingIsWritten() throws Exception
+    {
+        Writer writer = new Writer();
+        writer.writeSerializableObjectStart("Foo");
+        writer.writeSerializableObjectEnd();
     }
 
     @Test

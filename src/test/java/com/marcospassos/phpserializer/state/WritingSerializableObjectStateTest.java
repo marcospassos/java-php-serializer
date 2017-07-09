@@ -13,22 +13,34 @@ import static org.mockito.Mockito.mock;
  * @author Marcos Passos
  * @since 1.0
  */
-public class WritingObjectStateTest
+public class WritingSerializableObjectStateTest
 {
-    private WritingObjectState state;
+    private WritingSerializableObjectState state;
     private WriterState parent;
 
     @Before
     public void setUp() throws Exception
     {
         parent = mock(WriterState.class);
-        state = new WritingObjectState(parent);
+        state = new WritingSerializableObjectState(parent);
     }
 
     @Test
     public void isReferableReturnsFalse() throws Exception
     {
         assertFalse(state.isReferable());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void serializableObjectBeginIsNotAllowed() throws Exception
+    {
+        state.serializableBegin();
+    }
+
+    @Test
+    public void serializableObjectEndIsAllowed() throws Exception
+    {
+        assertSame(parent, state.serializableEnd());
     }
 
     @Test(expected = IllegalStateException.class)
@@ -43,28 +55,16 @@ public class WritingObjectStateTest
         state.objectBegin();
     }
 
-    @Test
-    public void objectEndIsAllowed() throws Exception
+    @Test(expected = IllegalStateException.class)
+    public void objectEndIsNotAllowed() throws Exception
     {
-        assertSame(parent, state.objectEnd());
-    }
-
-    @Test
-    public void propertyIsAllowed() throws Exception
-    {
-        assertTrue(state.property() instanceof WritingValueState);
+        state.objectEnd();
     }
 
     @Test(expected = IllegalStateException.class)
-    public void serializableObjectBeginIsNotAllowed() throws Exception
+    public void propertyIsNotAllowed() throws Exception
     {
-        state.serializableBegin();
-    }
-
-    @Test(expected = IllegalStateException.class)
-    public void serializableObjectEndIsNotAllowed() throws Exception
-    {
-        state.serializableEnd();
+        state.property();
     }
 
     @Test(expected = IllegalStateException.class)

@@ -15,7 +15,6 @@ import static org.mockito.Mockito.mock;
  */
 public class WritingArrayStateTest
 {
-
     private WritingArrayState state;
     private WriterState parent;
 
@@ -48,6 +47,18 @@ public class WritingArrayStateTest
     public void objectEndIsNotAllowed() throws Exception
     {
         state.objectEnd();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void serializableObjectBeginIsNotAllowed() throws Exception
+    {
+        state.serializableBegin();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void serializableObjectEndIsNotAllowed() throws Exception
+    {
+        state.serializableEnd();
     }
 
     @Test(expected = IllegalStateException.class)
