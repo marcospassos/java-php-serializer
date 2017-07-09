@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 There are currently no unreleased changes.
 
+## [0.4.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.4.0) (2017-07-09)
+
+### Changed
+
+- Improve `Writer`'s API for writing serializable objects.
+- Fix reference counting that breaks after writing serializable objects.
+
 ## [0.3.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.3.0) (2017-07-07)
 
 ### Changed
