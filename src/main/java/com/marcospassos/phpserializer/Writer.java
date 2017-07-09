@@ -28,6 +28,9 @@ public class Writer
      */
     private WriterState state;
 
+    /**
+     * The current sub writer.
+     */
     private Writer subWriter;
 
     /**
@@ -66,6 +69,15 @@ public class Writer
      *
      * @return A writer to be used to custom write the serializable object.
      */
+
+    /**
+     * Writes the start of an object to the buffer and returns an object-level
+     * sub writer.
+     *
+     * @param className The fully-qualified name of the class.
+     *
+     * @return An object-level sub writer to write the object's data.
+     */
     public Writer writeSerializableObjectStart(String className)
     {
         setState(state.serializableBegin());
@@ -81,6 +93,9 @@ public class Writer
         return subWriter;
     }
 
+    /**
+     * Writes the end of a serializable object to the buffer.
+     */
     void writeSerializableObjectEnd() {
         setState(state.serializableEnd());
 

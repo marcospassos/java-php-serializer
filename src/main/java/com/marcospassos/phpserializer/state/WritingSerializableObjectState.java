@@ -4,7 +4,7 @@ package com.marcospassos.phpserializer.state;
 import com.marcospassos.phpserializer.WriterState;
 
 /**
- * Represents the state of the writer while writing an object.
+ * Represents the state of the writer while writing a serializable object.
  *
  * @author Marcos Passos
  * @since 1.0
