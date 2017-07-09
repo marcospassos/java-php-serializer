@@ -81,6 +81,7 @@ public class Writer
         buffer.append("\":");
 
         subWriter = new Writer();
+        subWriter.pointer = pointer + 1;
 
         return subWriter;
     }
@@ -102,7 +103,9 @@ public class Writer
         buffer.append(data);
         buffer.append("}");
 
-        pointer += subWriter.getPointer();
+        pointer = subWriter.getPointer() + 1;
+
+        subWriter = null;
     }
 
     /**
