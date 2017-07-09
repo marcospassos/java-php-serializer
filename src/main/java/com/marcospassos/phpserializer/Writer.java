@@ -63,14 +63,6 @@ public class Writer
     }
 
     /**
-     * Writes a custom serialized object to the buffer.
-     *
-     * @param className The fully-qualified name of the class.
-     *
-     * @return A writer to be used to custom write the serializable object.
-     */
-
-    /**
      * Writes the start of an object to the buffer and returns an object-level
      * sub writer.
      *
