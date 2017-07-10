@@ -103,7 +103,7 @@ public class Writer
         buffer.append(data);
         buffer.append("}");
 
-        pointer = subWriter.getPointer() + 1;
+        pointer = subWriter.getPointer();
 
         subWriter = null;
     }

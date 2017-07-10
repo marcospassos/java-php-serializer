@@ -49,7 +49,7 @@ public class WriterTest
         writer.writeSerializableObjectEnd();
 
         assertEquals("C:3:\"Foo\":20:{a:1:{i:0;s:3:\"bar\";}}", writer.getResult());
-        assertEquals(4, writer.getPointer());
+        assertEquals(3, writer.getPointer());
     }
 
     @Test(expected = IllegalStateException.class)
