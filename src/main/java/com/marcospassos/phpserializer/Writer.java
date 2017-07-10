@@ -89,7 +89,7 @@ public class Writer
     /**
      * Writes the end of a serializable object to the buffer.
      */
-    void writeSerializableObjectEnd() {
+    public void writeSerializableObjectEnd() {
         setState(state.serializableEnd());
 
         if (!(subWriter.state instanceof FinishedState)) {
