@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 There are currently no unreleased changes.
 
+## [0.5.2](https://github.com/marcospassos/java-php-serializer/releases/tag/0.5.2) (2017-07-12)
+
+### Changed
+
+- Remove unnecessary quote escaping from string serialization.
+
+
 ## [0.5.1](https://github.com/marcospassos/java-php-serializer/releases/tag/0.5.1) (2017-07-09)
 
 ### Changed

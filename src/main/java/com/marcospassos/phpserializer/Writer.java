@@ -252,7 +252,7 @@ public class Writer
         buffer.append("s:");
         buffer.append(value.length());
         buffer.append(":\"");
-        buffer.append(value.replaceAll("\"", "\\\\\""));
+        buffer.append(value);
         buffer.append("\";");
     }
 

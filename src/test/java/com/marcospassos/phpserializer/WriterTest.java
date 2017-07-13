@@ -145,6 +145,15 @@ public class WriterTest
     }
 
     @Test
+    public void writeStringDoesNotEscapeQuotes() throws Exception
+    {
+        Writer writer = new Writer();
+        writer.writeString("\"foo\"");
+
+        assertEquals("s:5:\"\"foo\"\";", writer.getResult());
+    }
+
+    @Test
     public void writeEmptyString() throws Exception
     {
         Writer writer = new Writer();

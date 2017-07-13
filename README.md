@@ -56,7 +56,7 @@ to the `dependencies` section of its `pom.xml` file:
   <dependency>
     <groupId>com.marcospassos</groupId>
     <artifactId>phpserializer</artifactId>
-    <version>0.5.1</version>
+    <version>0.5.2</version>
   </dependency>
 </dependencies>
 ```
@@ -227,8 +227,8 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 ```
 
-[maven-central-badge]: https://img.shields.io/badge/maven%20central-v0.5.1-blue.svg
-[maven-central-latest]: http://search.maven.org/#artifactdetails%7Ccom.marcospassos%7Cphpserializer%7C0.5.1%7Cjar
+[maven-central-badge]: https://img.shields.io/badge/maven%20central-v0.5.2-blue.svg
+[maven-central-latest]: http://search.maven.org/#artifactdetails%7Ccom.marcospassos%7Cphpserializer%7C0.5.2%7Cjar
 [coverall-status]: https://coveralls.io/github/marcospassos/java-php-serializer
 [coverall-badge]: https://coveralls.io/repos/github/marcospassos/java-php-serializer/badge.svg
 [travis-badge]: https://travis-ci.org/marcospassos/java-php-serializer.svg?branch=master
@@ -243,4 +243,4 @@ DEALINGS IN THE SOFTWARE.
 [issue-tracker]: https://github.com/marcospassos/java-php-serializer/issues
 [repository]: https://github.com/marcospassos/java-php-serializer
 [releases-page]: https://github.com/marcospassos/java-php-serializer/releases
-[latest-release]: https://github.com/marcospassos/java-php-serializer/releases/tag/0.5.1
+[latest-release]: https://github.com/marcospassos/java-php-serializer/releases/tag/0.5.2
