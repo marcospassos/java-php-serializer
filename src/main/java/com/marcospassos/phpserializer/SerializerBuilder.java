@@ -70,8 +70,8 @@ public class SerializerBuilder
     /**
      * Creates a {@link Serializer} instance based on the current configuration.
      *
-     * This method is free of side-effects to this GsonBuilder instance and
-     * hence can be called multiple times.
+     * This method is free of side-effects to this instance and hence can be
+     * called multiple times.
      *
      * @return An instance of {@link Serializer} configured with the options
      * currently set in this builder.
@@ -109,7 +109,7 @@ public class SerializerBuilder
 
     /**
      * Configures the serializer to apply a specific naming policy strategy to
-     * an objects during serialization.
+     * objects during serialization.
      *
      * @param strategy The naming strategy to apply to objects.
      *
@@ -123,14 +123,15 @@ public class SerializerBuilder
     }
 
     /**
-     * Configures the serializer to apply the specified in exclusion strategy
+     * Configures the serializer to apply the specified exclusion strategy
      * during serialization.
      *
      * If this method is invoked numerous times with different exclusion
-     * strategy objects then the exclusion strategies that were added will be
-     * applied as a disjunction rule. This means that if one of the added
-     * exclusion strategies suggests that a field (or class) should be skipped
-     * then that field (or object) is skipped during its deserialization.
+     * strategies then the exclusion strategies that were added will be
+     * merged into a disjunction strategy. This means that if at least one of
+     * the added exclusion strategies suggests that a field (or class) should
+     * be skipped then that field (or object) is skipped during its
+     * deserialization.
      *
      * @param strategy The exclusion strategy.
      *
