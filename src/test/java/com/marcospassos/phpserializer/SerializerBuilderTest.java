@@ -2,17 +2,32 @@ package com.marcospassos.phpserializer;
 
 import java.lang.reflect.Field;
 import java.nio.charset.Charset;
+import java.util.Collection;
 import java.util.Map;
+import com.marcospassos.phpserializer.adapter.ArrayAdapter;
+import com.marcospassos.phpserializer.adapter.BooleanAdapter;
+import com.marcospassos.phpserializer.adapter.CollectionAdapter;
+import com.marcospassos.phpserializer.adapter.DoubleAdapter;
+import com.marcospassos.phpserializer.adapter.IntegerAdapter;
+import com.marcospassos.phpserializer.adapter.LongAdapter;
+import com.marcospassos.phpserializer.adapter.MapAdapter;
+import com.marcospassos.phpserializer.adapter.ObjectAdapter;
+import com.marcospassos.phpserializer.adapter.ReferableObjectAdapter;
+import com.marcospassos.phpserializer.adapter.StringAdapter;
 import com.marcospassos.phpserializer.exclusion.DisjunctionExclusionStrategy;
 import com.marcospassos.phpserializer.exclusion.NoExclusionStrategy;
 import com.marcospassos.phpserializer.naming.PsrNamingStrategy;
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -178,6 +193,73 @@ public class SerializerBuilderTest
         Map<Class, TypeAdapter> adapters = registry.getAdapters();
 
         assertFalse(adapters.isEmpty());
+    }
+
+    @Test
+    public void builderRegistersAllBuiltinAdapters() throws Exception
+    {
+        SerializerFactory factory = mock(SerializerFactory.class);
+
+        SerializerBuilder builder = new SerializerBuilder(factory);
+
+        builder.registerBuiltinAdapters();
+        builder.build();
+
+        ArgumentCaptor<AdapterRegistry> adapterRegistryArgument =
+            ArgumentCaptor.forClass(AdapterRegistry.class);
+
+        verify(factory).create(
+            any(NamingStrategy.class),
+            any(FieldExclusionStrategy.class),
+            adapterRegistryArgument.capture()
+        );
+
+        AdapterRegistry registry = adapterRegistryArgument.getValue();
+
+        assertThat(
+            registry.getAdapter(Object[].class),
+            instanceOf(ArrayAdapter.class)
+        );
+
+        assertThat(
+            registry.getAdapter(Map.class),
+            instanceOf(MapAdapter.class)
+        );
+
+        assertThat(
+            registry.getAdapter(Collection.class),
+            instanceOf(CollectionAdapter.class)
+        );
+
+        assertThat(
+            registry.getAdapter(Boolean.class),
+            instanceOf(BooleanAdapter.class)
+        );
+
+        assertThat(
+            registry.getAdapter(Double.class),
+            instanceOf(DoubleAdapter.class)
+        );
+
+        assertThat(
+            registry.getAdapter(Integer.class),
+            instanceOf(IntegerAdapter.class)
+        );
+
+        assertThat(
+            registry.getAdapter(Long.class),
+            instanceOf(LongAdapter.class)
+        );
+
+        assertThat(
+            registry.getAdapter(String.class),
+            instanceOf(StringAdapter.class)
+        );
+
+        assertThat(
+            registry.getAdapter(Object.class),
+            instanceOf(ReferableObjectAdapter.class)
+        );
     }
 
     @Test
