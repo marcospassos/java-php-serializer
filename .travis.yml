@@ -16,23 +16,7 @@ deploy:
     skip_cleanup: true
     on:
       repo: marcospassos/java-php-serializer
-      branch: master
-      jdk: oraclejdk8
-  -
-    provider: script
-    script: .travis/deploy-jars.sh
-    skip_cleanup: true
-    on:
-      repo: marcospassos/java-php-serializer
       tags: true
-      jdk: oraclejdk8
-  -
-    provider: script
-    script: .travis/deploy-javadocs.sh
-    skip_cleanup: true
-    on:
-      repo: marcospassos/java-php-serializer
-      branch: master
       jdk: oraclejdk8
   -
     provider: script
