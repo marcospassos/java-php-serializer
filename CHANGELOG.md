@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 There are currently no unreleased changes.
 
+## [0.8.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.8.0) (2018-02-28)
+
+### Changed
+
+- Fix bug that registers `DoubleAdapter` for type `Integer` instead of `Double`.
+- Add tests to ensure that calling `registerBuiltinAdapters()` registers all builtin adapters.
+
 ## [0.7.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.7.0) (2018-02-28)
 
 ### Changed
