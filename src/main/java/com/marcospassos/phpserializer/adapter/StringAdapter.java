@@ -28,7 +28,7 @@ public class StringAdapter implements TypeAdapter<String>
     /**
      * Creates a adapter for strings encoded with the specified charset.
      *
-     * @param charset
+     * @param charset The charset to encode strings.
      */
     public StringAdapter(Charset charset) {
         this.charset = charset;

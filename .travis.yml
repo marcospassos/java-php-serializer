@@ -9,6 +9,10 @@ before_install:
   - if [ ! -z "$GPG_OWNERTRUST" ]; then echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust; fi
 after_success:
   - mvn clean cobertura:cobertura coveralls:report -DrepoToken=${COVERALL_TOKEN}
+addons:
+  apt:
+    packages:
+      - libxml2-utils
 deploy:
   -
     provider: script
