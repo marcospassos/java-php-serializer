@@ -56,7 +56,7 @@ to the `dependencies` section of its `pom.xml` file:
   <dependency>
     <groupId>com.marcospassos</groupId>
     <artifactId>phpserializer</artifactId>
-    <version>0.6.0</version>
+    <version>0.7.0</version>
   </dependency>
 </dependencies>
 ```
@@ -76,17 +76,30 @@ model. The library ships a builder that help us with this task:
 
 ```java
 Serializer serializer = new SerializerBuilder()
+
   // Adds a custom exclusion strategy to determine which field
   // should be serialized or not (default: no exclusion)
   .addExclusionStrategy(new MyCustomExclusionStrategy())
+  
   // Sets the naming strategy to convert the name of classes
   // and fields from Java to PHP (default: PsrNamingStrategy)
   .setNamingStrategy(new MyCustomNamingStrategy())
+  
   // Registers all builtin adapters, using UTF-8 for encoding strings 
   // (default: all built-in adapters, UTF-8 charset)
-  .registerBuiltinAdapters(Charset.forName("UTF-8"))
+  .registerBuiltinAdapters()
+  
+  // Sets ISO-8859-1 as the default charset
+  //
+  // Notice that setCharset() register a new adapter configured with the 
+  // specified charset. Calling setCharset() prior to registerBuiltinAdapters()
+  // will have no effect as the previous configuration will get overriden
+  // by the default adapter which encodes strings in UTF-8. 
+  .setCharset(Charset.forName("ISO-8859-1"))
+  
   // Register a custom type adapter
   .registerAdapter(CustomObject.class, new CustomObjectAdapter())
+  
   // Creates the serialized based on the given configuration
   .build();
 ```
@@ -228,8 +241,8 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 ```
 
-[maven-central-badge]: https://img.shields.io/badge/maven%20central-v0.6.0-blue.svg
-[maven-central-latest]: http://search.maven.org/#artifactdetails%7Ccom.marcospassos%7Cphpserializer%7C0.6.0%7Cjar
+[maven-central-badge]: https://img.shields.io/badge/maven%20central-v0.7.0-blue.svg
+[maven-central-latest]: http://search.maven.org/#artifactdetails%7Ccom.marcospassos%7Cphpserializer%7C0.7.0%7Cjar
 [coverall-status]: https://coveralls.io/github/marcospassos/java-php-serializer
 [coverall-badge]: https://coveralls.io/repos/github/marcospassos/java-php-serializer/badge.svg
 [travis-badge]: https://travis-ci.org/marcospassos/java-php-serializer.svg?branch=master
@@ -244,4 +257,4 @@ DEALINGS IN THE SOFTWARE.
 [issue-tracker]: https://github.com/marcospassos/java-php-serializer/issues
 [repository]: https://github.com/marcospassos/java-php-serializer
 [releases-page]: https://github.com/marcospassos/java-php-serializer/releases
-[latest-release]: https://github.com/marcospassos/java-php-serializer/releases/tag/0.6.0
+[latest-release]: https://github.com/marcospassos/java-php-serializer/releases/tag/0.7.0

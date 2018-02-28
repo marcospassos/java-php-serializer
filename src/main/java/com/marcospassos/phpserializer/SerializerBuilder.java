@@ -90,6 +90,24 @@ public class SerializerBuilder
     }
 
     /**
+     * Configures the serializer to use the specified charset for
+     * serializing strings.
+     *
+     * Calling this method will override any registered adapter for
+     * {@code String}.
+     *
+     * @param charset The default charset to serialize strings.
+     *
+     * @return The current builder.
+     */
+    public SerializerBuilder setCharset(Charset charset)
+    {
+        registerAdapter(String.class, new StringAdapter(charset));
+
+        return this;
+    }
+
+    /**
      * Configures the serializer to apply a specific naming policy strategy to
      * an objects during serialization.
      *
@@ -152,23 +170,14 @@ public class SerializerBuilder
     /**
      * Registers all builtin adapters.
      *
+     * Calling this method will override any adapter already registered for
+     * the types handled by the builtin adapters.
+     *
      * Strings are serialized in UTF-8 by default.
      *
      * @return The current builder.
      */
     public SerializerBuilder registerBuiltinAdapters()
-    {
-        return registerBuiltinAdapters(Charset.forName("UTF-8"));
-    }
-
-    /**
-     * Registers all builtin adapters.
-     *
-     * @param charset The default charset used to serialize strings.
-     *
-     * @return The current builder.
-     */
-    public SerializerBuilder registerBuiltinAdapters(Charset charset)
     {
         ArrayAdapter arrayAdapter = new ArrayAdapter();
 
@@ -188,7 +197,7 @@ public class SerializerBuilder
         registerAdapter(Double.class, new IntegerAdapter());
         registerAdapter(Integer.class, new IntegerAdapter());
         registerAdapter(Long.class, new LongAdapter());
-        registerAdapter(String.class, new StringAdapter(charset));
+        registerAdapter(String.class, new StringAdapter());
         registerAdapter(Object.class, new ReferableObjectAdapter<>(
             new ObjectAdapter<>()
         ));

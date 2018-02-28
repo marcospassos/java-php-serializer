@@ -215,7 +215,7 @@ public class SerializerBuilderTest
         Charset charset = Charset.forName("ISO-8859-1");
 
         SerializerBuilder builder = new SerializerBuilder(factory);
-        builder.registerBuiltinAdapters(charset);
+        builder.setCharset(charset);
 
         builder.build();
 
