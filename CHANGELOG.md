@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 There are currently no unreleased changes.
 
+## [0.7.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.7.0) (2018-02-28)
+
+### Changed
+
+- Remove parameter `charset` from `SerializerBuilder::registerBuiltinAdapters()` in favor of `SerializerBuilder::setCharset()`
+
 ## [0.6.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.6.0) (2018-02-28)
 
 ### Changed
