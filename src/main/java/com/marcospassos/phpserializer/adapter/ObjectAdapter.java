@@ -11,7 +11,7 @@ import com.marcospassos.phpserializer.Writer;
 import com.marcospassos.phpserializer.util.ReflectionUtils;
 
 /**
- * Adapter for string values.
+ * Base adapter for {@code Object} type.
  *
  * @author Marcos Passos
  * @since 1.0

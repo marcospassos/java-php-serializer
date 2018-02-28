@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 There are currently no unreleased changes.
 
+## [0.6.0](https://github.com/marcospassos/java-php-serializer/releases/tag/0.6.0) (2018-02-28)
+
+### Changed
+
+- Introduce adapter for `Long` type as discussed in [#2](https://github.com/marcospassos/java-php-serializer/issues/2). 
+- Fix missing builtin adapters reported in [#2](https://github.com/marcospassos/java-php-serializer/issues/2).
+- Add support for string encoding, fixing cases where strings are badly encoded, as reported in [#3](https://github.com/marcospassos/java-php-serializer/issues/3).
+
 ## [0.5.2](https://github.com/marcospassos/java-php-serializer/releases/tag/0.5.2) (2017-07-12)
 
 ### Changed

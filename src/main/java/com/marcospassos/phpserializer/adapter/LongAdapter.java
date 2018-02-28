@@ -5,16 +5,16 @@ import com.marcospassos.phpserializer.TypeAdapter;
 import com.marcospassos.phpserializer.Writer;
 
 /**
- * Adapter for {@code Double} type.
+ * Adapter for {@code Long} values.
  *
  * @author Marcos Passos
  * @since 1.0
  */
-public class DoubleAdapter implements TypeAdapter<Double>
+public class LongAdapter implements TypeAdapter<Long>
 {
     @Override
-    public void write(Double value, Writer writer, Context context)
+    public void write(Long value, Writer writer, Context context)
     {
-        writer.writeFloat(value);
+        writer.writeInteger(value);
     }
 }

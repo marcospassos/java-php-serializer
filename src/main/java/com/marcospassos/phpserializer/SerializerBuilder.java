@@ -1,5 +1,6 @@
 package com.marcospassos.phpserializer;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -9,6 +10,8 @@ import com.marcospassos.phpserializer.adapter.ArrayAdapter;
 import com.marcospassos.phpserializer.adapter.BooleanAdapter;
 import com.marcospassos.phpserializer.adapter.CollectionAdapter;
 import com.marcospassos.phpserializer.adapter.IntegerAdapter;
+import com.marcospassos.phpserializer.adapter.LongAdapter;
+import com.marcospassos.phpserializer.adapter.MapAdapter;
 import com.marcospassos.phpserializer.adapter.ObjectAdapter;
 import com.marcospassos.phpserializer.adapter.ReferableObjectAdapter;
 import com.marcospassos.phpserializer.adapter.StringAdapter;
@@ -149,9 +152,23 @@ public class SerializerBuilder
     /**
      * Registers all builtin adapters.
      *
+     * Strings are serialized in UTF-8 by default.
+     *
      * @return The current builder.
      */
     public SerializerBuilder registerBuiltinAdapters()
+    {
+        return registerBuiltinAdapters(Charset.forName("UTF-8"));
+    }
+
+    /**
+     * Registers all builtin adapters.
+     *
+     * @param charset The default charset used to serialize strings.
+     *
+     * @return The current builder.
+     */
+    public SerializerBuilder registerBuiltinAdapters(Charset charset)
     {
         ArrayAdapter arrayAdapter = new ArrayAdapter();
 
@@ -164,10 +181,14 @@ public class SerializerBuilder
         registerAdapter(double[].class, arrayAdapter);
         registerAdapter(char[].class, arrayAdapter);
         registerAdapter(short[].class, arrayAdapter);
+
+        registerAdapter(Map.class, new MapAdapter());
         registerAdapter(Collection.class, new CollectionAdapter());
         registerAdapter(Boolean.class, new BooleanAdapter());
+        registerAdapter(Double.class, new IntegerAdapter());
         registerAdapter(Integer.class, new IntegerAdapter());
-        registerAdapter(String.class, new StringAdapter());
+        registerAdapter(Long.class, new LongAdapter());
+        registerAdapter(String.class, new StringAdapter(charset));
         registerAdapter(Object.class, new ReferableObjectAdapter<>(
             new ObjectAdapter<>()
         ));

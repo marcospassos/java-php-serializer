@@ -6,7 +6,7 @@ import com.marcospassos.phpserializer.TypeAdapter;
 import com.marcospassos.phpserializer.Writer;
 
 /**
- * Adapter for handling maps.
+ * Adapter for {@code Map} type.
  *
  * @param <K> the type of keys maintained by the map.
  * @param <V> the type of mapped values.

@@ -6,7 +6,7 @@ import com.marcospassos.phpserializer.TypeAdapter;
 import com.marcospassos.phpserializer.Writer;
 
 /**
- * Adapter for handling arrays.
+ * Adapter for {@code Array} type.
  *
  * @param <T> The type of values in the list.
  *

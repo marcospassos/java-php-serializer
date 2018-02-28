@@ -2,6 +2,7 @@
 package com.marcospassos.phpserializer;
 
 import java.lang.reflect.Modifier;
+import java.nio.charset.Charset;
 import com.marcospassos.phpserializer.state.FinishedState;
 import com.marcospassos.phpserializer.state.WritingValueState;
 
@@ -247,10 +248,25 @@ public class Writer
      */
     public void writeString(String value)
     {
+        writeString(value, Charset.forName("UTF-8"));
+    }
+
+    /**
+     * Writes a string in the specified charset to the buffer.
+     *
+     * @param value The value.
+     * @param charset The charset to be used to serialize the value.
+     */
+    public void writeString(String value, Charset charset)
+    {
         setState(state.value());
 
+        byte[] bytes = value.getBytes(charset);
+
+        value = new String(bytes, charset);
+
         buffer.append("s:");
-        buffer.append(value.length());
+        buffer.append(bytes.length);
         buffer.append(":\"");
         buffer.append(value);
         buffer.append("\";");
@@ -276,6 +292,20 @@ public class Writer
      * @param value The value.
      */
     public void writeInteger(Integer value)
+    {
+        setState(state.value());
+
+        buffer.append("i:");
+        buffer.append(value);
+        buffer.append(';');
+    }
+
+    /**
+     * Writes an long value to the buffer.
+     *
+     * @param value The value.
+     */
+    public void writeInteger(Long value)
     {
         setState(state.value());
 
