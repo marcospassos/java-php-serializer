@@ -162,7 +162,7 @@ public class SerializerBuilder
      *
      * @return The current builder.
      */
-    public <T> SerializerBuilder registerAdapter(Class<T> type, TypeAdapter<? extends T> adapter)
+    public <T> SerializerBuilder registerAdapter(Class type, TypeAdapter adapter)
     {
         adapterMap.put(type, adapter);
 
