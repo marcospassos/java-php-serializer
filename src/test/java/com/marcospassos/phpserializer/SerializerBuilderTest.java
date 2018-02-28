@@ -1,6 +1,7 @@
 package com.marcospassos.phpserializer;
 
 import java.lang.reflect.Field;
+import java.nio.charset.Charset;
 import java.util.Map;
 import com.marcospassos.phpserializer.exclusion.DisjunctionExclusionStrategy;
 import com.marcospassos.phpserializer.exclusion.NoExclusionStrategy;
@@ -14,6 +15,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 /**
@@ -176,5 +178,64 @@ public class SerializerBuilderTest
         Map<Class, TypeAdapter> adapters = registry.getAdapters();
 
         assertFalse(adapters.isEmpty());
+    }
+
+    @Test
+    public void builderRegisterStringAdapterUsingUtf8CharsetByDefault() throws Exception
+    {
+        SerializerFactory factory = mock(SerializerFactory.class);
+
+        new SerializerBuilder(factory).build();
+
+        ArgumentCaptor<AdapterRegistry> adapterRegistryArgument =
+            ArgumentCaptor.forClass(AdapterRegistry.class);
+
+        verify(factory).create(
+            any(NamingStrategy.class),
+            any(FieldExclusionStrategy.class),
+            adapterRegistryArgument.capture()
+        );
+
+        AdapterRegistry registry = adapterRegistryArgument.getValue();
+        Writer writer = mock(Writer.class);
+        Context context = mock(Context.class);
+
+        TypeAdapter<String> adapter = registry.getAdapter(String.class);
+
+        adapter.write("foo", writer, context);
+
+        verify(writer).writeString("foo", Charset.forName("UTF-8"));
+    }
+
+    @Test
+    public void builderRegisterStringAdapterUsingSpecifiedCharset() throws Exception
+    {
+        SerializerFactory factory = mock(SerializerFactory.class);
+
+        Charset charset = Charset.forName("ISO-8859-1");
+
+        SerializerBuilder builder = new SerializerBuilder(factory);
+        builder.registerBuiltinAdapters(charset);
+
+        builder.build();
+
+        ArgumentCaptor<AdapterRegistry> adapterRegistryArgument =
+            ArgumentCaptor.forClass(AdapterRegistry.class);
+
+        verify(factory).create(
+            any(NamingStrategy.class),
+            any(FieldExclusionStrategy.class),
+            adapterRegistryArgument.capture()
+        );
+
+        AdapterRegistry registry = adapterRegistryArgument.getValue();
+        Writer writer = mock(Writer.class);
+        Context context = mock(Context.class);
+
+        TypeAdapter<String> adapter = registry.getAdapter(String.class);
+
+        adapter.write("foo", writer, context);
+
+        verify(writer).writeString("foo", charset);
     }
 }

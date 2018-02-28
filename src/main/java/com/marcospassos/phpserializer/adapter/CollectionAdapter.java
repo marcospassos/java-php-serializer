@@ -6,7 +6,7 @@ import com.marcospassos.phpserializer.TypeAdapter;
 import com.marcospassos.phpserializer.Writer;
 
 /**
- * Adapter for handling collections.
+ * Adapter for {@code Collection} type.
  *
  * @param <T> The type of values in the collection.
  *

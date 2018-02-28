@@ -1,6 +1,7 @@
 package com.marcospassos.phpserializer;
 
 import java.lang.reflect.Modifier;
+import java.nio.charset.Charset;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -136,12 +137,22 @@ public class WriterTest
     }
 
     @Test
-    public void writeString() throws Exception
+    public void writeStringUtf8() throws Exception
     {
         Writer writer = new Writer();
-        writer.writeString("foo");
+        writer.writeString("Informations générales");
 
-        assertEquals("s:3:\"foo\";", writer.getResult());
+        assertEquals("s:24:\"Informations générales\";", writer.getResult());
+    }
+
+    @Test
+    public void writeStringIsoCharset() throws Exception
+    {
+        Writer writer = new Writer();
+        Charset charset = Charset.forName("ISO-8859-1");
+        writer.writeString("Informations générales", charset);
+
+        assertEquals("s:22:\"Informations générales\";", writer.getResult());
     }
 
     @Test
@@ -185,6 +196,15 @@ public class WriterTest
     {
         Writer writer = new Writer();
         writer.writeInteger(1);
+
+        assertEquals("i:1;", writer.getResult());
+    }
+
+    @Test
+    public void writeLong() throws Exception
+    {
+        Writer writer = new Writer();
+        writer.writeInteger(1L);
 
         assertEquals("i:1;", writer.getResult());
     }

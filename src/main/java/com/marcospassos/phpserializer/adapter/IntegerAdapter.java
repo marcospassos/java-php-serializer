@@ -5,7 +5,7 @@ import com.marcospassos.phpserializer.TypeAdapter;
 import com.marcospassos.phpserializer.Writer;
 
 /**
- * Adapter for boolean values.
+ * Adapter for {@code Integer} values.
  *
  * @author Marcos Passos
  * @since 1.0
