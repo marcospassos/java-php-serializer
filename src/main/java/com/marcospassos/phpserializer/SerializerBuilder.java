@@ -9,6 +9,7 @@ import java.util.Map;
 import com.marcospassos.phpserializer.adapter.ArrayAdapter;
 import com.marcospassos.phpserializer.adapter.BooleanAdapter;
 import com.marcospassos.phpserializer.adapter.CollectionAdapter;
+import com.marcospassos.phpserializer.adapter.DoubleAdapter;
 import com.marcospassos.phpserializer.adapter.IntegerAdapter;
 import com.marcospassos.phpserializer.adapter.LongAdapter;
 import com.marcospassos.phpserializer.adapter.MapAdapter;
@@ -161,7 +162,7 @@ public class SerializerBuilder
      *
      * @return The current builder.
      */
-    public SerializerBuilder registerAdapter(Class type, TypeAdapter adapter)
+    public <T> SerializerBuilder registerAdapter(Class type, TypeAdapter adapter)
     {
         adapterMap.put(type, adapter);
 
@@ -180,22 +181,11 @@ public class SerializerBuilder
      */
     public SerializerBuilder registerBuiltinAdapters()
     {
-        ArrayAdapter arrayAdapter = new ArrayAdapter();
-
-        registerAdapter(Object[].class, arrayAdapter);
-        registerAdapter(int[].class, arrayAdapter);
-        registerAdapter(float[].class, arrayAdapter);
-        registerAdapter(byte[].class, arrayAdapter);
-        registerAdapter(boolean[].class, arrayAdapter);
-        registerAdapter(long[].class, arrayAdapter);
-        registerAdapter(double[].class, arrayAdapter);
-        registerAdapter(char[].class, arrayAdapter);
-        registerAdapter(short[].class, arrayAdapter);
-
-        registerAdapter(Map.class, new MapAdapter());
-        registerAdapter(Collection.class, new CollectionAdapter());
+        registerAdapter(Object[].class, new ArrayAdapter<>());
+        registerAdapter(Map.class, new MapAdapter<>());
+        registerAdapter(Collection.class, new CollectionAdapter<>());
         registerAdapter(Boolean.class, new BooleanAdapter());
-        registerAdapter(Double.class, new IntegerAdapter());
+        registerAdapter(Double.class, new DoubleAdapter());
         registerAdapter(Integer.class, new IntegerAdapter());
         registerAdapter(Long.class, new LongAdapter());
         registerAdapter(String.class, new StringAdapter());
